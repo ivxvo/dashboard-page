@@ -2,7 +2,9 @@
   
   <div class="main-container">
     <div class="header">
-      <div class="logo">@justFree</div>
+      <div class="logo">
+        <span class="logo1">@just</span><span class="logo2">Free</span>
+      </div>
       <div class="search">
         <Search></Search>
       </div>
@@ -11,7 +13,9 @@
     <div class="sidebar">
       <Sidebar></Sidebar>
     </div>
-    <div></div>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
   
 </template>
@@ -59,10 +63,27 @@ export default {
 .logo {
   color: #ffff;
   background-color: #1e88e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.logo1 {
+  font-family: Tide200;
+}
+
+.logo2 {
+  font-family: Tide400;
 }
 
 .search, .user {
   background-color: #e0e0e0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
 }
 
 .sidebar {

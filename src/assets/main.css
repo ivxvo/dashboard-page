@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "AvenirN";
+    src: url("../../public/fonts/AvenirNextLTPro-Regular.otf");
+}
+
+@font-face {
+    font-family: Tide200;
+    src: url("../../public/fonts/TideSans-200LilMondo.otf");
+}
+
+@font-face {
+    font-family: Tide400;
+    src: url("../../public/fonts/TideSans-400LilDude.otf");
+}
+
+body {
+    margin: 0;
+}
