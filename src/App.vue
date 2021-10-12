@@ -85,14 +85,15 @@ export default {
   background-color: #f5f5f5;
   max-width: 1550px;
   display: grid;
-  grid-template-columns: 230px 1320px;
+  grid-template-columns: 230px minmax(650px, 1320px);
   grid-template-rows: 70px calc(100vh - 70px);
 }
 
 .header {
   grid-column: 1 / 3;
   display: grid;
-  grid-template-columns: 230px 1104px 216px;
+  /* grid-template-columns: 230px minmax(200px, 1104px) 216px; */
+  grid-template-columns: 230px minmax(200px, 1104px) auto;
   grid-template-rows: 70px;
 }
 
@@ -120,6 +121,11 @@ export default {
 .search {
   display: flex;
   align-items: center;
+}
+
+.search .search-group {
+  width: 100%;
+  padding: 0 34px;
 }
 
 .user {
@@ -154,7 +160,7 @@ export default {
   background-color: #37474f;
   width: 40px;
   height: 40px;
-  margin-left: 14px;
+  margin: 0 33px 0 14px;
 }
 
 .vertical {

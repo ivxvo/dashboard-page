@@ -11,10 +11,6 @@
     align-items: center;
 }
 
-.search-group img {
-    padding-left: 34px;
-}
-
 .search-group input {
     padding-left: 18px;
     border: none;
