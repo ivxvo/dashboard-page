@@ -6,12 +6,32 @@ export const router = createRouter({
         {
             path: "/",
             name: "home",
-            component: () => import("./views/Home.vue")
+            component: () => import("./views/template.vue")
         }, 
         {
             path: "/analytics",
-            name: "/analytics",
+            name: "analytics",
             component: () => import("./views/Analytics.vue")
         }, 
+        {
+            path: "/settings",
+            name: "settings",
+            component: () => import("./views/template.vue")
+        },
+        {
+            path: "/time-management",
+            name: "time-management",
+            component: () => import("./views/template.vue")
+        },
+        {
+            path: "/inbox",
+            name: "inbox",
+            component: () => import("./views/template.vue")
+        },
+        {
+            path: "/calendar",
+            name: "calendar",
+            component: () => import("./views/template.vue")
+        },
     ]
 });

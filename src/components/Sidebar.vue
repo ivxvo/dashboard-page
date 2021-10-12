@@ -37,13 +37,13 @@ export default {
                     name: "inbox",
                     text: "Inbox",
                     img: "Box.png",
-                    path: "/"                    
+                    path: "/inbox"                    
                 },
                 {
                     name: "calendar",
                     text: "Calendar",
                     img: "Calendar.png",
-                    path: "/inbox"                    
+                    path: "/calendar"                    
                 },
                 {
                     name: "analytics",

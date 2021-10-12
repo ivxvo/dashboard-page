@@ -2,21 +2,25 @@
   
   <div class="main-container">
     <div class="header">
-      <div class="logo">
+      <div class="logo center-center">
         <span class="logo1">@just</span><span class="logo2">Free</span>
       </div>
       <div class="search">
         <Search></Search>
       </div>
       <div class="user">
-        <img src="./assets/img/Bell.png" alt="">
-        <div class="circle notify">{{ numNotify }}</div>
+        <button @click="showMsg">
+          <img src="./assets/img/Bell.png" alt="">
+        </button>
+        <div class="circle notify center-center">{{ numNotify }}</div>
         <div class="vertical"/>
         <Dropdown
           :list="dataList"
           @selected="onSelected"
         ></Dropdown>
-        <div class="circle avatar">{{ symbol }}</div>
+        <div class="center-center">
+          <button class="circle avatar">{{ symbol }}</button>
+        </div>
       </div>
     </div>
     <div class="sidebar">
@@ -60,6 +64,9 @@ export default {
   methods: {
     onSelected(id) {
       this.username = this.dataList.find(item => item.id == id).name;
+    },
+    showMsg() {
+      alert(`You have ${this.numNotify} notifications`);
     }
   },
   computed: {
@@ -97,12 +104,15 @@ export default {
   grid-template-rows: 70px;
 }
 
-.logo {
-  color: #ffff;
-  background-color: #1e88e5;
+.center-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo {
+  color: #ffff;
+  background-color: #1e88e5;  
   font-size: 18px;
 }
 
@@ -133,10 +143,13 @@ export default {
   align-items: center;
 }
 
-.circle {  
+.profile{
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+}
+
+.circle {      
   color: #ffff;
   border-radius: 50%;
   -moz-border-radius: 50%;
@@ -155,7 +168,14 @@ export default {
   height: 18px;
 }
 
-.avatar {
+.user button {
+  border: none;
+  background-color: #e0e0e0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button.avatar {
   font-size: 16px;
   background-color: #37474f;
   width: 40px;

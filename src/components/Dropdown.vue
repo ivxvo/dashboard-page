@@ -34,6 +34,7 @@ export default {
     color: #37474f;
     font: 14px AvenirN;
     outline: none;
+    cursor: pointer;
 }
 
 </style>
