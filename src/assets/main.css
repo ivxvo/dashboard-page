@@ -12,3 +12,7 @@
     font-family: Tide400;
     src: url("../../public/fonts/TideSans-400LilDude.otf");
 }
+
+body {
+    margin: 0;
+}

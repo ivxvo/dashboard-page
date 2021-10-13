@@ -93,7 +93,8 @@ export default {
   max-width: 1550px;
   display: grid;
   grid-template-columns: 230px minmax(650px, 1320px);
-  grid-template-rows: 70px calc(100vh - 70px);
+  grid-template-rows: 70px minmax(calc(100vh - 70px), auto);
+  /* grid-template-rows: 70px calc(100vh - 70px); */
 }
 
 .header {
