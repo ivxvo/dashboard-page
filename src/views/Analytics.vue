@@ -5,13 +5,30 @@
             <span>Checkout your latest projects and their progress</span>
         </div>
         <div class="horizontal"/>
-        <div class="wavy"></div>
+        <div class="steppedChart">
+            <SteppedChart
+                :data="dataStepped"
+            ></SteppedChart>
+        </div>
     </div>
 </template>
 
 <script>
+import SteppedChart from "../components/StepedChart.vue";
+
 export default {
-    
+    name: "Analytics",
+    components: SteppedChart,
+    data() {
+        return {
+            dataStepped: [
+                ["week 1", 40, 42],
+                ["week 2", 44, 41],
+                ["week 3", 41, 45],
+                ["week 4", 47, 40],
+            ]
+        }
+    }
 }
 </script>
 
@@ -19,6 +36,8 @@ export default {
 
 .container {
     padding: 52px 0 0 70px;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1170px));
+    grid-template-rows: 440px 506px  375px;
 }
 
 .greeting {
@@ -42,7 +61,7 @@ export default {
     background-color: #dee3e7;
 }
 
-.wavy {
+.steppedChart {
     padding-top: 43px;
 }
 
