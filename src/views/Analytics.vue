@@ -1,59 +1,117 @@
 <template>
-    <div class="container grid-container">
-        <div>
-            <div class="caption">
-                <span>Hi Filip,</span><br/>
-                <span>Checkout your latest projects and their progress.</span>
-            </div>
-            <div class="horizontal"/>
-            <div class="chart">
-                <GooglChart :chartData="dataCommon" chartType="SteppedAreaChart" chartTitle="Stepped Area Chart"/>
-            </div>
-        </div>
-        <div class="grid-container">
-            <div class="caption">
-                <span>Crunch some Numbers</span><br/>
-                <span>See how your projects are progressing via the new statistics engine.</span>
-            </div>
-            <div class="horizontal"/>
-            <div class="bar-chart-container grid-container">
-                <div class="chart">
-                    <GooglChart :chartData="dataCommon" chartType="BarChart" chartTitle="Bar Chart"/>
-                    <GooglChart :chartData="dataCommon" chartType="LineChart" chartTitle="Line Chart"/>
-                    <GooglChart :chartData="dataCommon" chartType="BubbleChart" chartTitle="Bubble Chart"/>
+    <div class="container grid-container">        
+        <ChartPanel
+            title="Hi Filip,"
+            subtitle="Checkout your latest projects and their progress."  
+        >
+            <template v-slot:chart>
+                <GooglChart :chartData="dataStepped" chartType="SteppedAreaChart" chartTitle="Stepped Area Chart"/>
+            </template>
+        </ChartPanel>
+        <ChartPanel
+            title="Crunch some Numbers"
+            subtitle="See how your projects are progressing via the new statistics engine." 
+            :isTimeline="true" 
+        >
+            <template v-slot:chart>
+                <div class="bar-chart-container grid-container">
+                    <div>
+                        <GooglChart :chartData="dataCommon" chartType="BarChart" chartTitle="Bar Chart"/>
+                        <GooglChart :chartData="dataCommon" chartType="LineChart" chartTitle="Line Chart"/>
+                        <GooglChart :chartData="dataCommon" chartType="BubbleChart" chartTitle="Bubble Chart"/>
+                    </div>
+                    <div>
+                        <GooglChart :chartData="dataCommon" chartType="ColumnChart" chartTitle="Column Chart"/>
+                        <GooglChart :chartData="dataCommon" chartType="ScatterChart" chartTitle="Scatter Chart"/>
+                        <GooglChart :chartData="dataCommon" chartType="Histogram" chartTitle="Histogram"/>
+                    </div>                
                 </div>
-                <div class="chart union">
-                    <GooglChart :chartData="dataHistogram" chartType="Histogram" chartTitle="Histogram"/>
+            </template>
+        </ChartPanel>     
+        <ChartPanel
+            title="Current Progress"
+            subtitle="This table will show you how your current projects are behaving."  
+        >
+            <template v-slot:chart>
+                <div class="grid-container">
+                    <ProgressPanel
+                        title="Project 1"
+                        subtitle="Design"
+                        :dateUpdated="date.toDateString()"
+                        :duration="`${date.getHours()}:${date.getMinutes()}`"
+                        :comments=602
+                        :progress=87
+                    />
+                    <ProgressPanel
+                        title="Project 2"
+                        subtitle="Design & Development"
+                        :dateUpdated="date.toDateString()"
+                        :duration="`${date.getHours()}:${date.getMinutes()}`"
+                        :comments=710
+                        :progress=54
+                    />
+                    <ProgressPanel
+                        title="Project 3"
+                        subtitle="Architecture"
+                        :dateUpdated="date.toDateString()"
+                        :duration="`${date.getHours()}:${date.getMinutes()}`"
+                        :comments=162
+                        :progress=17
+                    />
+                    <ProgressPanel
+                        title="Project 4"
+                        subtitle="Development"
+                        :dateUpdated="date.toDateString()"
+                        :duration="`${date.getHours()}:${date.getMinutes()}`"
+                        :comments=924
+                        :progress=97
+                    />
                 </div>
-            </div>
-        </div>
+            </template>
+        </ChartPanel>
+        <ChartPanel
+            title="Crunch some Numbers"
+            subtitle="See how your project progressive via the new statistics engine."  
+            :isTimeline="true"
+        >
+            <template v-slot:chart>
+                <div class="pie-chart-container grid-container">                    
+                    <GooglChart :chartData="dataCommon" chartType="PieChart" chartTitle="Pie Chart"/>
+                    <GooglChart :chartData="dataStepped" chartType="LineChart" chartTitle="Line Chart"/>
+                </div>
+            </template>
+        </ChartPanel>
     </div>
 </template>
 
 <script>
 import GooglChart from "../components/GooglChart.vue";
+import ChartPanel from "../components/ChartPanel.vue";
+import ProgressPanel from "../components/ProgressChartPanel.vue";
 
 export default {
     name: "Analytics",
     components: {
-        GooglChart
+        GooglChart,
+        ChartPanel,
+        ProgressPanel
     },
     data() {
-        return {
-            dataHistogram: [
-                ["Month", "2020", "2021"],
-                ["Jan", 150, 155],
-                ["Feb", 149, 141],
-                ["Mar", 170, 179],
-                ["Apr", 157, 164],
-                ["May", 180, 189],
-                ["Jun", 187, 179],
-                ["Jul", 162, 156],
-                ["Aug", 155, 186],
-                ["Sep", 170, 175],
-                ["Oct", 188, 193],
-                ["Nov", 197, 201],
-                ["Dec", 147, 140]                
+        return {    
+            date: new Date(),        
+            dataStepped: [
+                ["Date", "2020", "2021"],
+                ["30.05", 150, 155],
+                ["31.05", 149, 141],
+                ["01.06", 170, 179],
+                ["02.06", 157, 164],
+                ["03.06", 180, 189],
+                ["04.06", 187, 179],
+                ["05.06", 162, 156],
+                ["06.06", 155, 186],
+                ["07.06", 170, 175],
+                ["08.06", 188, 193],
+                ["09.06", 197, 201],
             ],
             dataCommon: [
                 ["Week", "Aug", "Sep"],
@@ -83,44 +141,26 @@ export default {
     display: grid;    
 }
 
-.bar-chart-container .grid-container {
-    gap: 1px;
+.bar-chart-container div>*:nth-child(n+2) {
+    padding-top: 5px;
 }
 
 .bar-chart-container {
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) minmax(300px, 2fr));
-    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr) minmax(300px, 2fr));
 }
 
-.bar-chart-container>div+div {
-    grid-column: 2 / 3;
-    grid-row: 1 / 4;
+@media all and (max-width: 910px) {
+    .bar-chart-container {
+        /* gap: 30px; */
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 200px 200px 200px; */
+    }
 }
 
-.caption {
-    font-family: AvenirN;
-}
-
-.caption span:first-child {
-    font-size: 18px;
-    color: #37474f;
-}
-
-.caption span {
-    font-size: 14px;
-    color: #78909c;
-}
-
-.horizontal {
-    margin-top: 24px;
-    max-width: 1180px;
-    height: 2px;
-    background-color: #dee3e7;
-}
-
-.chart {
-    padding-top: 43px;
+.pie-chart-container {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 </style>

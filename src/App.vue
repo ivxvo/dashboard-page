@@ -94,13 +94,11 @@ export default {
   display: grid;
   grid-template-columns: 230px minmax(650px, 1320px);
   grid-template-rows: 70px minmax(calc(100vh - 70px), auto);
-  /* grid-template-rows: 70px calc(100vh - 70px); */
 }
 
 .header {
   grid-column: 1 / 3;
   display: grid;
-  /* grid-template-columns: 230px minmax(200px, 1104px) 216px; */
   grid-template-columns: 230px minmax(200px, 1104px) auto;
   grid-template-rows: 70px;
 }
