@@ -6,6 +6,7 @@
 </template>
 
 <style scoped>
+
 .search-group {
     display: flex;
     align-items: center;
@@ -24,9 +25,10 @@
     outline: none;
 }
 
-@media all and (max-width: 867px) {
+@media all and (max-width: 845px) {
     .search-group input {       
         background-color: #f5f5f5;
     }
 }
+
 </style>

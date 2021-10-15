@@ -109,7 +109,7 @@ a:visited {
     color: #9ba3a7;
 }
 
-@media all and (max-width: 867px) {
+@media all and (max-width: 845px) {
     .menu li a span {
         display: none;
     }
@@ -129,6 +129,16 @@ a:visited {
     .menu {   
         display: flex;
         justify-content: space-around;
+    }
+}
+
+@media all and (max-width: 335px) {
+    .menu li a {
+        padding: 19px;
+    }
+
+    .menu li {
+        height: 30px;
     }
 }
 

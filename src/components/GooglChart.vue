@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-show="isChartCaption" class="strip">
-            <div class="caption chart-caption">
-                <span>Stepped Lines</span><br/>
+        <div v-show="chartCaption" class="strip">
+            <div class="chart-caption">
+                <span>{{ chartCaption }}</span><br/>
                 <span>Working hours</span>
             </div>
             <div>
@@ -30,9 +30,9 @@ export default {
         chartData: Array,
         chartType: String,
         chartTitle: String,
-        isChartCaption: {
-            type: Boolean,
-            default: false
+        chartCaption: {
+            type: String,
+            default: ""
         }
     },
     data() {
@@ -46,20 +46,20 @@ export default {
                 pieHole: 0.25,
                 trendlines: {
                     0: {
-                    type: 'linear',
-                    color: 'green',
-                    lineWidth: 3,
-                    opacity: 0.3,
-                    showR2: true,
-                    visibleInLegend: true
+                        type: 'linear',
+                        color: 'green',
+                        lineWidth: 3,
+                        opacity: 0.3,
+                        showR2: true,
+                        visibleInLegend: true
                     },
                     1: {
-                    type: 'linear',
-                    color: 'red',
-                    lineWidth: 3,
-                    opacity: 0.5,
-                    showR2: true,
-                    visibleInLegend: true
+                        type: 'linear',
+                        color: 'red',
+                        lineWidth: 3,
+                        opacity: 0.5,
+                        showR2: true,
+                        visibleInLegend: true
                     }
                 }
             }

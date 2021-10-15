@@ -76,29 +76,20 @@ export default {
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 
 .main-container {
   margin: auto;
   background-color: #f5f5f5;
   max-width: 1550px;
   display: grid;
-  grid-template-columns: 230px minmax(650px, 1320px);
-  grid-template-rows: 70px minmax(calc(100vh - 70px), auto);
-  padding-bottom: 60px;
+  grid-template-columns: 230px minmax(600px, 1320px);
+  grid-template-rows: 70px auto;
 }
 
 .header {
   grid-column: 1 / 3;
   display: grid;
-  grid-template-columns: 230px minmax(200px, 1104px) auto;
+  grid-template-columns: 230px minmax(150px, 1104px) auto;
   grid-template-rows: 70px;
   background-color: #e0e0e0;
 }
@@ -184,7 +175,7 @@ button.avatar {
 
 }
 
-@media all and (max-width: 867px) {
+@media all and (max-width: 845px) {
     /* .sidebar {
         grid-column: 1 / 3;
         grid-row: 4 / 5;
@@ -198,7 +189,8 @@ button.avatar {
       z-index: 1;
     }
 
-    .main-container {      
+    .main-container {     
+      padding-bottom: 60px;
       grid-template-columns: minmax(320px, 1fr);
       grid-template-rows: 110px auto;
     }
@@ -228,6 +220,27 @@ button.avatar {
 
     button.avatar {
       margin: 0 10px;
+    }
+}
+
+
+@media all and (max-width: 385px) {
+    .main-container {     
+      grid-template-rows: 90px auto;
+    }
+
+    .header {
+      grid-template-rows: 50px 40px;
+    }
+
+    .search .search-group {
+      padding: 0 10px;
+    }
+}
+
+@media all and (max-width: 335px) {
+    .main-container {     
+      padding-bottom: 50px;
     }
 }
 

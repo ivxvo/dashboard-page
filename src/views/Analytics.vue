@@ -5,7 +5,7 @@
             subtitle="Checkout your latest projects and their progress."  
         >            
             <template v-slot:chart>
-                <GooglChart :isChartCaption="true" :chartData="dataStepped" chartType="SteppedAreaChart" chartTitle="Stepped Area Chart"/>
+                <GooglChart chartCaption="Stepped Lines" :chartData="dataStepped" chartType="SteppedAreaChart" chartTitle="Stepped Area Chart"/>
             </template>
         </ChartPanel>
         <ChartPanel
@@ -15,15 +15,14 @@
         >
             <template v-slot:chart>
                 <div class="bar-chart-container grid-container">
-                    <div>
+                    <div>                        
                         <GooglChart :chartData="dataCommon" chartType="BarChart" chartTitle="Bar Chart"/>
                         <GooglChart :chartData="dataCommon" chartType="LineChart" chartTitle="Line Chart"/>
                         <GooglChart :chartData="dataCommon" chartType="BubbleChart" chartTitle="Bubble Chart"/>
                     </div>
                     <div>
-                        <GooglChart :isChartCaption="true" :chartData="dataCommon" chartType="ColumnChart" chartTitle="Column Chart"/>
-                        <GooglChart :isChartCaption="true" :chartData="dataCommon" chartType="ScatterChart" chartTitle="Scatter Chart"/>
-                        <GooglChart :isChartCaption="true" :chartData="dataCommon" chartType="Histogram" chartTitle="Histogram"/>
+                        <GooglChart chartCaption="Daily Progress" :chartData="dataCommon" chartType="ColumnChart" chartTitle="Column Chart"/>
+                        <GooglChart chartCaption="Daily Progress" :chartData="dataCommon" chartType="Histogram" chartTitle="Histogram"/>
                     </div>                
                 </div>
             </template>
@@ -168,7 +167,7 @@ export default {
                 ["week 2", 47, 41],
                 ["week 3", 42, 49],
                 ["week 4", 57, 40]
-            ],
+            ]
         }
     }
 }
@@ -177,7 +176,7 @@ export default {
 <style scoped>
 
 .container {
-    padding: 52px 75px 0;
+    padding: 52px 75px;
     grid-template-columns: minmax(300px, 1fr);
 }
 
@@ -193,9 +192,13 @@ export default {
     padding-top: 5px;
 }
 
+.bar-chart-container div+div>*:nth-child(n+2) {
+    padding-top: 42px;
+}
+
 .bar-chart-container {
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) minmax(300px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) minmax(600px, 2fr));
 }
 
 .pie-chart-container {
@@ -225,8 +228,8 @@ export default {
     font-weight: bold;
     font-size: 14px;
 }
+
 .foto {
-    /* grid-row: 1 / 3; */
     grid-column: 1 / 3;
     display: flex;
     flex-direction: column;
@@ -240,8 +243,6 @@ export default {
 
 .foto div {
     text-align: center;
-    /* font: 14px AvenirN;
-    color: #78909c; */
 }
 
 .caption span:first-child {
@@ -266,7 +267,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 20px;
+    align-items: center;
 }
 
 .statistics span:first-child {
@@ -297,7 +298,7 @@ export default {
     padding-left: 15px;
 }
 
-@media all and (max-width: 1025px) {
+@media all and (max-width: 1325px) {
 
     .bar-chart-container {
         grid-template-columns: minmax(300px, 1fr);
@@ -311,6 +312,9 @@ export default {
         padding-top: 40px;
     }
 
+    .bar-chart-container div+div>*:nth-child(n+2) {
+    padding-top: 15px;
+}
 }
 
 @media all and (max-width: 385px) {
