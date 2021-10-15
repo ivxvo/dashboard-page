@@ -105,6 +105,10 @@ select {
     .chart-caption span:first-child {
         font-size: 18px;
     }
+
+    select {
+        font-size: 12px;
+    }
 }
 
 </style>
