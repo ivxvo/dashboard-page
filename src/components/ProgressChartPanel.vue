@@ -99,4 +99,11 @@ export default {
   height: 24px;
 }
 
+@media all and (max-width: 1025px) {
+    .progress-chart-container {        
+        grid-template-rows: 75px;
+        grid-auto-rows: 30px;
+    }
+}
+
 </style>

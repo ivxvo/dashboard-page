@@ -92,6 +92,7 @@ export default {
   display: grid;
   grid-template-columns: 230px minmax(650px, 1320px);
   grid-template-rows: 70px minmax(calc(100vh - 70px), auto);
+  padding-bottom: 60px;
 }
 
 .header {
@@ -198,9 +199,13 @@ button.avatar {
     }
 
     .main-container {      
-      grid-template-columns: minmax(110px, 1fr) minmax(210px, 2fr);
-      /* grid-template-rows: 70px 50px minmax(calc(100vh - 150px), auto); */
-      grid-template-rows: 70px 50px auto;
+      grid-template-columns: minmax(320px, 1fr);
+      grid-template-rows: 110px auto;
+    }
+
+    .header {
+      grid-template-columns: minmax(110px, 1fr) minmax(210px, 3fr);
+      grid-template-rows: 60px 50px;
     }
 
     .search {

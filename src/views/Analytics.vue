@@ -177,8 +177,8 @@ export default {
 <style scoped>
 
 .container {
-    padding: 52px 75px;
-    grid-template-columns: minmax(375px, 1fr);
+    padding: 52px 75px 0;
+    grid-template-columns: minmax(300px, 1fr);
 }
 
 .container>div+div {
@@ -298,11 +298,25 @@ export default {
 }
 
 @media all and (max-width: 1025px) {
+
     .bar-chart-container {
-        grid-template-columns: minmax(375px, 1fr);
+        grid-template-columns: minmax(300px, 1fr);
     }
+
+    .container {
+        padding: 30px 35px;
+    }
+
+    .container>div+div {
+        padding-top: 40px;
+    }
+
 }
 
-
+@media all and (max-width: 385px) {
+    .container {
+        padding: 20px 10px;
+    }
+}
 
 </style>

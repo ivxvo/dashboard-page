@@ -101,4 +101,10 @@ select {
     cursor: pointer;
 }
 
+@media all and (max-width: 385px) {
+    .chart-caption span:first-child {
+        font-size: 18px;
+    }
+}
+
 </style>

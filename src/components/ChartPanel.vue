@@ -97,4 +97,10 @@ export default {
     padding-top: 43px;
 }
 
+@media all and (max-width: 1025px) {
+    .chart {
+        padding-top: 30px;
+    }
+}
+
 </style>
