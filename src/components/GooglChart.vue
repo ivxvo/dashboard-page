@@ -1,5 +1,16 @@
 <template>
     <div>
+        <div v-show="isChartCaption" class="strip">
+            <div class="caption chart-caption">
+                <span>Stepped Lines</span><br/>
+                <span>Working hours</span>
+            </div>
+            <div>
+                <select name="period">
+                    <option value="1">THIS WEEK</option>
+                </select>                
+            </div>
+        </div> 
         <GChart
             :type="chartType"
             :data="chartData"
@@ -18,7 +29,11 @@ export default {
     props: {
         chartData: Array,
         chartType: String,
-        chartTitle: String
+        chartTitle: String,
+        isChartCaption: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
@@ -26,9 +41,9 @@ export default {
                 title: this.chartTitle,
                 width: "100%",
                 height: "100%",
-                legend: { position: "top" },
+                legend: { position: "bottom" },
                 vAxis: { title: "Working hours" },
-                pieHole: 0.4,
+                pieHole: 0.25,
                 trendlines: {
                     0: {
                     type: 'linear',
@@ -52,3 +67,38 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.chart-caption span:last-child {
+    font-size: 14px;
+    color: #78909c;
+}
+
+.chart-caption {
+    padding: 20px 15px;
+}
+
+.chart-caption span:first-child {
+    font-size: 21px;
+    color: #37474f;
+}
+
+.strip {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select {
+    color: #37474f;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+</style>

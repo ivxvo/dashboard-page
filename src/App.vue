@@ -18,15 +18,13 @@
           :list="dataList"
           @selected="onSelected"
         ></Dropdown>
-        <div class="center-center">
-          <button class="circle avatar">{{ symbol }}</button>
-        </div>
+        <button class="circle avatar">{{ symbol }}</button>
       </div>
     </div>
     <div class="sidebar">
       <Sidebar></Sidebar>
     </div>
-    <div>
+    <div id="rview">
       <router-view></router-view>
     </div>
   </div>
@@ -101,6 +99,7 @@ export default {
   display: grid;
   grid-template-columns: 230px minmax(200px, 1104px) auto;
   grid-template-rows: 70px;
+  background-color: #e0e0e0;
 }
 
 .center-center {
@@ -123,10 +122,6 @@ export default {
   font-family: Tide400;
 }
 
-.search, .user {
-  background-color: #e0e0e0;
-}
-
 .search {
   display: flex;
   align-items: center;
@@ -140,12 +135,6 @@ export default {
 .user {
   display: flex;
   align-items: center;
-}
-
-.profile{
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .circle {      
@@ -192,6 +181,49 @@ button.avatar {
 .sidebar {
     background-color: #37474f;
 
+}
+
+@media all and (max-width: 867px) {
+    /* .sidebar {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    } */
+
+    .sidebar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .main-container {      
+      grid-template-columns: minmax(110px, 1fr) minmax(210px, 2fr);
+      /* grid-template-rows: 70px 50px minmax(calc(100vh - 150px), auto); */
+      grid-template-rows: 70px 50px auto;
+    }
+
+    .search {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .search, .search-group input {
+      background-color: #f5f5f5;
+    }
+
+    #rview {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+    }
+
+    .user {
+      margin-left: auto;
+    }
+
+    button.avatar {
+      margin: 0 10px;
+    }
 }
 
 </style>

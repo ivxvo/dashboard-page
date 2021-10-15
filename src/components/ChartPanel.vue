@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="horizontal"/>
-        <div class="chart">           
+        <div class="chart">                     
             <slot name="chart"/>
         </div>
     </div>
@@ -41,10 +41,6 @@ export default {
 </script>
 
 <style scoped>
-
-.caption {
-    font-family: AvenirN;
-}
 
 .caption span:first-child {
     font-size: 18px;

@@ -23,4 +23,10 @@
 .search-group input:focus-visible {
     outline: none;
 }
+
+@media all and (max-width: 867px) {
+    .search-group input {       
+        background-color: #f5f5f5;
+    }
+}
 </style>
